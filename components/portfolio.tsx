@@ -13,6 +13,7 @@ import { MountainIcon } from "lucide-react";
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 
 import Link from "next/link";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export function Portfolio() {
   const projects = [
@@ -131,7 +132,15 @@ export function Portfolio() {
                     <CardDescription>{project.description}</CardDescription>
                   </CardHeader>
                   <CardFooter>
-                    <Button asChild>
+                    <Button
+                      asChild
+                      onClick={() =>
+                        sendGTMEvent({
+                          event: "buttonClicked",
+                          value: project.title,
+                        })
+                      }
+                    >
                       <Link href={project.link}>View Project</Link>
                     </Button>
                   </CardFooter>
@@ -193,7 +202,13 @@ export function Portfolio() {
               Contact
             </h2>
             <div className="flex justify-center space-x-4">
-              <Button variant="outline" size="icon">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() =>
+                  sendGTMEvent({ event: "buttonClicked", value: "github" })
+                }
+              >
                 <Link
                   href="https://github.com/mkabuage"
                   target="_blank"
@@ -203,7 +218,13 @@ export function Portfolio() {
                   <span className="sr-only">GitHub</span>
                 </Link>
               </Button>
-              <Button variant="outline" size="icon">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() =>
+                  sendGTMEvent({ event: "buttonClicked", value: "linkedin" })
+                }
+              >
                 <Link
                   href="https://www.linkedin.com/in/michael-kabuage"
                   target="blank"
@@ -213,7 +234,13 @@ export function Portfolio() {
                   <span className="sr-only">LinkedIn</span>
                 </Link>
               </Button>
-              <Button variant="outline" size="icon">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() =>
+                  sendGTMEvent({ event: "buttonClicked", value: "email" })
+                }
+              >
                 <SiGmail className="h-4 w-4" />
                 <span className="sr-only">Email</span>
               </Button>
