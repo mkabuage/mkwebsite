@@ -9,57 +9,53 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MountainIcon } from "lucide-react";
+import { MountainIcon, CalendarIcon, ClockIcon } from "lucide-react";
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 
 import Link from "next/link";
 import { sendGTMEvent } from "@next/third-parties/google";
+import { ContactForm } from "./ContactForm";
 
 export function Portfolio() {
   const projects = [
     {
-      title: "AI Image Generator",
-      description:
-        "A deep learning model that generates images from text descriptions.",
+      title: "Ollama and Open WebUI",
+      description: "Comming Soon...",
+      link: "",
+    },
+    {
+      title: "Comming Soon...",
+      description: "",
       link: "#",
     },
     {
-      title: "Data Visualization Dashboard",
-      description:
-        "Interactive dashboard for visualizing complex datasets using D3.js.",
-      link: "#",
-    },
-    {
-      title: "Natural Language Processing Tool",
-      description:
-        "A tool for sentiment analysis and named entity recognition.",
+      title: "Comming Soon...",
+      description: "",
       link: "#",
     },
   ];
 
   const blogPosts = [
     {
-      title: "Introduction to Machine Learning",
+      title: "Unlocking the Power of Early Engagement",
       description:
-        "Learn the basics of machine learning and its applications in AI.",
-      date: "2023-06-15",
+        "A Technical Consultant’s Journey from Problem Discovery to Proof of Concept",
+      date: "9th Sept 2024",
       readTime: "5 min read",
+      link: "https://open.substack.com/pub/michaelkabuage/p/unlocking-the-power-of-early-engagement?r=3bz98e&utm_campaign=post&utm_medium=web",
+    },
+    {
+      title: "Comming soon...",
+      description: "",
+      date: "",
+      readTime: "",
       link: "#",
     },
     {
-      title: "Data Visualization Techniques",
-      description:
-        "Explore various techniques for effective data visualization.",
-      date: "2023-07-02",
-      readTime: "8 min read",
-      link: "#",
-    },
-    {
-      title: "Natural Language Processing: A Deep Dive",
-      description:
-        "Understand the intricacies of NLP and its role in AI development.",
-      date: "2023-07-20",
-      readTime: "10 min read",
+      title: "Comming soon...",
+      description: "",
+      date: "",
+      readTime: "",
       link: "#",
     },
   ];
@@ -74,18 +70,18 @@ export function Portfolio() {
           </span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
+          {/* <Link
             className="text-sm font-medium hover:underline underline-offset-4"
             href="#projects"
           >
             Projects
-          </Link>
-          {/* <Link
+          </Link> */}
+          <Link
             className="text-sm font-medium hover:underline underline-offset-4"
             href="#blog"
           >
             Blog
-          </Link> */}
+          </Link>
           <Link
             className="text-sm font-medium hover:underline underline-offset-4"
             href="#about"
@@ -116,7 +112,7 @@ export function Portfolio() {
             </div>
           </div>
         </section>
-        <section
+        {/* <section
           id="projects"
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
         >
@@ -148,8 +144,8 @@ export function Portfolio() {
               ))}
             </div>
           </div>
-        </section>
-        {/* <section id="blog" className="w-full py-12 md:py-24 lg:py-32">
+        </section> */}
+        <section id="blog" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
               Blog
@@ -171,14 +167,20 @@ export function Portfolio() {
                   </CardContent>
                   <CardFooter>
                     <Button asChild>
-                      <Link href={post.link}>Read More</Link>
+                      <Link
+                        href={post.link}
+                        target="blank"
+                        rel="noopener noreferrer"
+                      >
+                        Read Post
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>
               ))}
             </div>
           </div>
-        </section> */}
+        </section>
         <section
           id="about"
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
@@ -201,7 +203,11 @@ export function Portfolio() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8">
               Contact
             </h2>
-            <div className="flex justify-center space-x-4">
+            {/* <div className="mx-auto">
+              <ContactForm />
+            </div> */}
+
+            <div className="flex justify-center space-x-4 py-12">
               <Button
                 variant="outline"
                 size="icon"
@@ -234,16 +240,18 @@ export function Portfolio() {
                   <span className="sr-only">LinkedIn</span>
                 </Link>
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 size="icon"
                 onClick={() =>
                   sendGTMEvent({ event: "buttonClicked", value: "email" })
                 }
               >
-                <SiGmail className="h-4 w-4" />
-                <span className="sr-only">Email</span>
-              </Button>
+                <Link href="mailto:michael.kabuage@daltinum.com">
+                  <SiGmail className="h-4 w-4" />
+                  <span className="sr-only">Email</span>
+                </Link>
+              </Button> */}
             </div>
           </div>
         </section>
