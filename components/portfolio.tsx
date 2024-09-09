@@ -14,7 +14,6 @@ import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 
 import Link from "next/link";
 import { sendGTMEvent } from "@next/third-parties/google";
-import { ContactForm } from "./ContactForm";
 
 export function Portfolio() {
   const projects = [
